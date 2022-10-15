@@ -2,9 +2,10 @@ package com.example.employee.Modal;
 
 
 import javax.persistence.*;
+;
 
 @Entity
-@Table(name ="Employee_Details")
+@Table(name = "Employee")
 public class Employee {
 
     @Id

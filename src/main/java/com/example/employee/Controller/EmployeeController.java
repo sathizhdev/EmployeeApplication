@@ -29,5 +29,11 @@ public class EmployeeController {
          return new ResponseEntity<Employee>(employee, HttpStatus.FOUND);
     }
 
+    @GetMapping("/")
+    public ResponseEntity<String> homePage()
+    {
+        return new ResponseEntity<String>("Home",HttpStatus.OK);
+    }
+
 
 }
