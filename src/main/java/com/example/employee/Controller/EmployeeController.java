@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
@@ -20,12 +22,11 @@ public class EmployeeController {
     EmployeeService employeeService;
 
     @GetMapping("/employees/{id}")
-    public ResponseEntity<Object> findEmployeebyId(@PathVariable String id)
+    public ResponseEntity<Employee> findEmployeebyId(@PathVariable String id)
     {
-        if(!employeeService.findByID(id).isPresent())
-             throw new UserNotFoundException("User WIth " + id + " Not Found");
+        Employee employee = employeeService.findByID(id).get();
 
-         return new ResponseEntity<>(employeeService.findByID(id), HttpStatus.OK);
+         return new ResponseEntity<Employee>(employee, HttpStatus.FOUND);
     }
 
 

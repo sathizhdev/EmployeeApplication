@@ -4,7 +4,7 @@ package com.example.employee.Modal;
 import javax.persistence.*;
 
 @Entity
-@Table
+@Table(name ="Employee_Details")
 public class Employee {
 
     @Id
@@ -13,7 +13,10 @@ public class Employee {
 
     private String firstName;
     private String lastName;
+
+    @Column(unique=true)
     private String email;
+
     private int age;
 
     public Employee(String empId, String firstName, String lastName, String email, int age) {

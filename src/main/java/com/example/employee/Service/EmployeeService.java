@@ -16,6 +16,9 @@ public class EmployeeService  {
 
     public Optional<Employee> findByID(String id)
     {
+        if(!employeeRepository.findById(id).isPresent())
+            throw new UserNotFoundException("User WIth " + id + " Not Found");
+
        return employeeRepository.findById(id);
     }
 
