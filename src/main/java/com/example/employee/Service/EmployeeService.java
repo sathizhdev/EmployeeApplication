@@ -18,10 +18,21 @@ public class EmployeeService  {
 
     public Optional<Employee> findByID(String id)
     {
-        if(!employeeRepository.findById(id).isPresent())
-            throw new UserNotFoundException("User WIth " + id + " Not Found");
+      Optional<Employee> employee = employeeRepository.findById(id);
 
-       return employeeRepository.findById(id);
+      return employee;
     }
+
+    public void SaveEmployee(Employee employee)
+    {
+       employeeRepository.save(employee);
+
+    }
+
+    public boolean isExists(String id)
+    {
+        return employeeRepository.existsById(id);
+    }
+
 
 }

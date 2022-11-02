@@ -2,7 +2,7 @@ package com.example.employee.Modal;
 
 
 import javax.persistence.*;
-;
+
 
 @Entity
 @Table(name = "Employee")
